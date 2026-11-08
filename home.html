@@ -1,29 +1,144 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
 
-<head>
-  <meta charset="utf-8" />
-  <link rel="icon" href="/favicon.ico" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="theme-color" content="#000000" />
-  <meta name="description" content="An idea sharing social media app built with React" />
-  <link rel="manifest" href="/assets/manifest-BKUCz28N.json" />
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Faculty+Glyphic&family=Ma+Shan+Zheng&family=Noto+Color+Emoji&family=Noto+Sans+SC:wght@100..900&family=Noto+Serif+SC:wght@200..900&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Pacifico&display=swap"
-    rel="stylesheet">
-  <!-- Google Fonts end -->
+<!--
+about:version template page
+-->
 
-  <title>i++</title>
-  <script type="module" crossorigin src="/assets/index-DUgPQEqT.js"></script>
-  <link rel="stylesheet" crossorigin href="/assets/index-CeBzmyBM.css">
-</head>
+<html id="t" dir="ltr" lang="en" >
+  <head>
+    <meta charset="utf-8">
+    <meta name="color-scheme" content="light dark">
+    <title>About Version</title>
+    <base href="chrome://version">
 
-<body>
-  <noscript>You need to enable JavaScript to run this app.</noscript>
-  <div id="root"></div>
-</body>
+    <link rel="icon" type="image/png" sizes="32x32"
+        href="chrome://theme/current-channel-logo">
 
+    <link rel="stylesheet" href="chrome://resources/css/text_defaults.css">
+
+    <link rel="stylesheet" href="chrome://version/about_version.css">
+
+
+    <script type ="module" src="about_version.js"></script>
+  </head>
+
+  <body>
+    <div id="outer">
+      <div id="logo">
+
+        <!-- Version for themes. -->
+        <picture>
+          <source srcset="chrome://theme/IDR_PRODUCT_LOGO_WHITE,"
+                          chrome://theme/IDR_PRODUCT_LOGO_WHITE@2x 2x
+                  media="(prefers-color-scheme: dark)">
+          <source srcset="chrome://theme/IDR_PRODUCT_LOGO,"
+                          chrome://theme/IDR_PRODUCT_LOGO@2x 2x
+                  media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)">
+          <img alt="Chrome logo" src="chrome://theme/IDR_PRODUCT_LOGO">
+        </picture>
+
+
+        <div id="company">Google LLC</div>
+        <div id="copyright">Copyright 2026 Google LLC. All rights reserved.</div>
+      </div>
+      <table id="inner" cellpadding="0" cellspacing="0" border="0">
+        <tr><td class="label">Google Chrome</td>
+          <td class="version" id="version">
+            <span id="copy-content">
+              <span>157.0.8103.38</span>
+              (<span>Official Build</span>)
+              <span></span>
+              <span>(64-bit)</span>
+  
+              <span>(cohort: 157.0.8103.38 Rollout)</span>
+  
+            </span>
+            <button id="copy-to-clipboard" class="copy-button" aria-label="Copy version string">
+              <div id="copy-to-clipboard-icon"></div>
+            </button>
+          </td>
+        </tr>
+        <tr>
+          <td class="label">Revision</td>
+          <td class="version">
+            <span>a733b5afbb3ba618844ff8876b89ad1a774b2f18-refs/branch-heads/8103@{#1034}</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td class="label">OS</td>
+          <td class="version" id="os_type">
+            <span id="copy-os-content">
+              <span>Windows</span>
+
+
+              <span id="os_version"></span>
+
+            </span>
+          </td>
+        </tr>
+
+
+
+
+        <tr><td class="label">JavaScript</td>
+          <td class="version" id="js_engine">
+            <span>V8</span>
+            <span>15.7.112.23</span>
+          </td>
+        </tr>
+
+        <tr><td class="label">User Agent</td>
+          <td class="version" id="useragent">Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/157.0.0.0 Safari/537.36</td>
+        </tr>
+        <tr><td class="label">Command Line</td>
+          <td class="version" id="command_line">&quot;C:\Program Files\Google\Chrome\Application\chrome.exe&quot; --source-shortcut-location=desktop --flag-switches-begin --flag-switches-end --flag-switches-begin --flag-switches-end</td>
+        </tr>
+
+        <tr><td class="label">Executable Path</td>
+          <td class="version" id="executable_path"></td>
+        </tr>
+        <tr><td class="label">Profile Path</td>
+          <td class="version" id="profile_path"></td>
+        </tr>
+
+
+        <tr id="variations-source-section" hidden>
+          <td class="label">Variations Source</td>
+          <td class="version" id="variations-source">variations server</td>
+        </tr>
+        <tr id="variations-seed-section" hidden>
+          <td class="label">Variations Seed Type</td>
+          <td class="version" id="variations-seed">Safe</td>
+        </tr>
+        <tr id="variations-cmd-section">
+          <td class="label">Command-line Variations</td>
+          <td class="version-wide" id="variations-cmd"></td>
+          <td>
+            <button id="copy-variations-to-clipboard" class="copy-button"
+                aria-label="Copy variations string">
+              <div id="copy-to-clipboard-icon"></div>
+            </button>
+          </td>
+        </tr>
+        <tr id="variations-section">
+          <td class="label">Active Variations</td>
+          <td class="version" id="variations-list"></td>
+          <td>
+            <button id="copy-active-variations-to-clipboard" class="copy-button"
+                aria-label="Copy variations string">
+              <div id="copy-to-clipboard-icon"></div>
+            </button>
+          </td>
+        </tr>
+        <tr id="sanitizer-section" hidden>
+          <td class="label">Sanitizer</td>
+          <td class="version" id="sanitizer"></td>
+        </tr>
+      </table>
+    </div>
+
+    <div id="messages" role="alert" aria-live="polite" aria-relevant="additions">
+    </div>
+  </body>
 </html>
